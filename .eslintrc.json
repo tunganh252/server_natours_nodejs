@@ -12,7 +12,9 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		"prettier/prettier": "error",
+		"prettier/prettier": ["error", {
+			"endOfLine":"auto"
+		  }],
 		"spaced-comment": "off",
 		"no-console": "warn",
 		"consistent-return": "off",
