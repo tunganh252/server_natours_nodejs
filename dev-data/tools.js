@@ -33,8 +33,8 @@ mongoose
   });
 
 const tours = JSON.parse(fs.readFileSync('./data/tours.json', 'utf-8'));
-const users = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'));
-const reviews = JSON.parse(fs.readFileSync('./data/reviews.json', 'utf-8'));
+// const reviews = JSON.parse(fs.readFileSync('./data/reviews.json', 'utf-8'));
+// const users = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'));
 
 /**
  * @example: node tools.js --import
@@ -42,8 +42,8 @@ const reviews = JSON.parse(fs.readFileSync('./data/reviews.json', 'utf-8'));
 const importData = async () => {
   try {
     await Tour.create(tours);
-    await User.create(users);
-    await Review.create(reviews);
+    // await Review.create(reviews);
+    // await User.create(users, { validateBeforeSave: false });
     console.log(
       'import data success',
       `-----Time Finish ${new Date() - startTime}ms`
@@ -60,8 +60,8 @@ const importData = async () => {
 const deleteData = async () => {
   try {
     await Tour.deleteMany();
-    await User.deleteMany();
     await Review.deleteMany();
+    // await User.deleteMany();
     console.log(
       'delete data success',
       `-----Time Finish ${new Date() - startTime}ms`

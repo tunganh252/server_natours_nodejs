@@ -26,7 +26,7 @@ const startTime = new Date();
 
 mongoose
   .connect(DB_CLOUD, {
-  // .connect(process.env.DATABASE_LOCAL, {
+    // .connect(process.env.DATABASE_LOCAL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -39,30 +39,33 @@ mongoose
     );
   });
 
-/**
- * @enum: 2 option: start server dev || start server prod
- */
 
-const startServerDev = () => {
-  process.env.NODE_ENV = 'DEVELOPMENT';
-  console.log('Is running server DEVELOPMENT');
+let PORT = 8080;
+let server = null;
+
+const startServer = (type) => {
+  PORT =
+    type === process.env.PORT_DEV
+      ? process.env.PORT_DEV
+      : type === process.env.PORT_PROD
+      ? process.env.PORT_PROD
+      : 8080;
+
+  server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}.`);
+  });
+
+  if (type === process.env.PORT_DEV) {
+    process.env.NODE_ENV = 'DEVELOPMENT';
+    console.log('Is running server DEVELOPMENT');
+  } else if (type === process.env.PORT_PROD) {
+    process.env.NODE_ENV = 'PRODUCTION';
+    console.log('Is running server PRODUCTION');
+  }
 };
 
-const startServerProd = () => {
-  console.log('Is running server PRODUCTION');
-  process.env.NODE_ENV = 'PRODUCTION';
-};
-
-if (process.argv[4] === '--dev') startServerDev();
-else if (process.argv[4] === '--prod') startServerProd();
-
-/**
- * @description: Start Server with port 8080
- */
-const PORT = process.env.PORT || 8080;
-const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}.`);
-});
+if (process.argv[4] === '--dev') startServer(process.env.PORT_DEV);
+else if (process.argv[4] === '--prod') startServer(process.env.PORT_PROD);
 
 /**
  * @description: unhandle rejection

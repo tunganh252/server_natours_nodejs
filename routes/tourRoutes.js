@@ -19,19 +19,29 @@ const router = express.Router();
 
 router.use('/:tourId/reviews', reviewRouter);
 
-router
-  .route('/get-top-cheap')
-  .get(tourController.aliasTopTour, tourController.getAllTours);
+router.get(
+  '/get-top-cheap',
+  tourController.aliasTopTour,
+  tourController.getAllTours
+);
 
-router.route('/statis-tours').get(tourController.getStatisTours);
+router.get('/statis-tours', tourController.getStatisTours);
 
-router
-  .route('/get-monthly-plan/:year')
-  .get(
-    authController.protect,
-    authController.restricTo('ADMIN', 'LEAD_GUIDE', 'GUIDE'),
-    tourController.getMonthlyPlanFollowYear
-  );
+router.get(
+  '/get-monthly-plan/:year',
+  authController.protect,
+  authController.restricTo('ADMIN', 'LEAD_GUIDE', 'GUIDE'),
+  tourController.getMonthlyPlanFollowYear
+);
+
+// /tours-within/:distance/center/:latlng/unit/:unit
+// /tours-within/233/center/34.111745,-118.113491/unit/mi
+router.get(
+  '/tours-within/:distance/center/:latlng/unit/:unit',
+  tourController.getToursWithin
+);
+
+router.get('/distances/:latlng/unit/:unit', tourController.getDistances);
 
 router
   .route('/')
@@ -48,6 +58,8 @@ router
   .patch(
     authController.protect,
     authController.restricTo('ADMIN', 'LEAD_GUIDE'),
+    tourController.uploadTourImages,
+    tourController.resizeTourImages,
     tourController.updateTour
   )
   .delete(

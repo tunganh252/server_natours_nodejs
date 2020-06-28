@@ -1,10 +1,10 @@
 const { promisify } = require('util');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const User = require('./../models/userModel');
-const catchAsync = require('./../utils/catchAsync');
-const AppError = require('./../utils/appError');
-const sendEmail = require('./../utils/email');
+const User = require('../models/userModel');
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
+const sendEmail = require('../utils/email');
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -31,15 +31,12 @@ const _createSendToken = (type) => (user, statusCode, res) => {
     Status: 'success',
     Code: 0,
     Token: type === 'login' ? token : undefined,
-    data:
-      user.role === 'ADMIN'
-        ? user
-        : {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-          },
+    Data: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    },
   });
 };
 
@@ -49,6 +46,7 @@ exports.signup = catchAsync(async (req, res) => {
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
+    photo: req.body.photo,
     role: req.body.role,
   });
 
@@ -93,6 +91,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith('Bearer')
   ) {
     token = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.cookie_user) {
+    token = req.cookies.cookie_user;
   }
 
   if (!token) {
@@ -122,13 +122,18 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // GRANT ACCESS TO PROTECTED ROUTE
   req.user = currentUser;
+
+  // GRANT ACCESS FOR CLIENT WEB
+  res.locals.user = currentUser;
+
   next();
 });
 
 exports.restricTo = (...roles) => {
   return (req, res, next) => {
     // Roles = ['ADMIN', 'LEAD_GUIDE'] | Role = "USER"
-    console.log(req.user);
+    // console.log(req.user);
+
     if (!roles.includes(req.user.role)) {
       const message = "You don't have permission to perform this action";
       return next(new AppError(403, -1, message));
@@ -141,7 +146,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   // 1. Get user based on Post email
 
   const user = await User.findOne({ email: req.body.email });
-  console.log('user:', user);
+  // console.log('user:', user);
 
   if (!user) {
     const message = 'There is no user with email address';
@@ -158,7 +163,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     'host'
   )}/api/v1/users/resetPassword/${resetToken}`;
 
-  console.log(2222, resetURL);
+  // console.log(2222, resetURL);
 
   const message = `Forgot your password? Submit a PATCH request with your new passowrd and passwordConfirm to: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
 
@@ -226,6 +231,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     req.body.passwordCurrent,
     user.password
   );
+
   if (!correctPassword) {
     return next(new AppError(401, -1, 'Your current password is wrong.'));
   }
@@ -240,3 +246,56 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   const _createSendTokenToSignup = _createSendToken('updatePassword');
   _createSendTokenToSignup(user, 200, res);
 });
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+
+/**
+ * @description: Only use for rendered pages, no errors
+ */
+exports.isLoggedInClient = async (req, res, next) => {
+  if (req.cookies.cookie_user) {
+    try {
+      // 1. Verification token
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.cookie_user,
+        process.env.JWT_SECRET
+      );
+
+      // 2. Check if user still exits
+      const currentUser = await User.findById(decoded.id);
+
+      if (!currentUser) {
+        return next();
+      }
+
+      // 3. Check if user changed password after the token was issued
+      const checkUserChangedPassword = currentUser.changedPasswordAfter(
+        decoded.iat
+      );
+      if (checkUserChangedPassword) {
+        return next();
+      }
+
+      // GRANT ACCESS TO PROTECTED ROUTE
+      res.locals.user = currentUser;
+      return next();
+    } catch (error) {
+      return next();
+    }
+  }
+  next();
+};
+
+exports.logout = (req, res) => {
+  res.cookie('cookie_user', 'logout', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    Status: 'success',
+    Code: 0,
+  });
+};

@@ -9,12 +9,13 @@ exports.getAll = (Model) =>
     if (req.params.tourId) filter = { tour: req.params.tourId };
 
     // Excuted query
-    const features = new APIFeatures(Model.find(), req.query)
+    const features = new APIFeatures(Model.find(filter), req.query)
       .filter()
       .sort()
       .fieldsLimit()
       .pagination();
     // console.log(features);
+    // const docData = await features.query.explain();
     const docData = await features.query;
     // Send response
 
@@ -29,7 +30,7 @@ exports.getAll = (Model) =>
 
 exports.getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
-    let query = await Model.findById(req.params.id);
+    let query = Model.findById(req.params.id);
     if (popOptions) query = query.populate(popOptions);
     const docData = await query;
 
@@ -59,7 +60,7 @@ exports.createOne = (Model) =>
 
 exports.updateOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    const id = req.params.id;
+    const { id } = req.params;
     const dataRequest = req.body;
     const docData = await Model.findByIdAndUpdate(id, dataRequest, {
       new: true,
@@ -82,7 +83,7 @@ exports.updateOne = (Model) =>
 
 exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    const id = req.params.id;
+    const { id } = req.params;
     const docDelete = await Model.findByIdAndDelete(id);
 
     if (!docDelete) {

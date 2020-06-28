@@ -5,7 +5,7 @@ const validator = require('validator');
 
 const tourSchema = new mongoose.Schema(
   {
-    slugTest: String,
+    slug: String,
     name: {
       type: String,
       required: [true, 'A tour must have a name'],
@@ -28,10 +28,10 @@ const tourSchema = new mongoose.Schema(
     },
     difficulty: {
       type: String,
-      required: [true, 'A tour must have a difficulty'],
+      required: [true, 'A tour must have a field difficulty'],
       enum: {
         values: ['easy', 'medium', 'difficult'],
-        message: 'Difficulty is either: easy, medium, difficulty',
+        message: 'Difficulty is either: easy, medium, difficult',
       },
       validate: [
         validator.isAlpha,
@@ -43,8 +43,9 @@ const tourSchema = new mongoose.Schema(
       default: 4.5,
       min: [1, 'Rating must be above 1.0'],
       max: [5, 'Rating must be below 5.0'],
+      set: (val) => Math.round(val * 10) / 10, // 4.666666 -> 46.66666 -> 47 -> 4.7
     },
-    ratingsqQuantity: {
+    ratingsQuantity: {
       type: Number,
       default: 0,
     },
@@ -90,11 +91,11 @@ const tourSchema = new mongoose.Schema(
       type: {
         type: String,
         default: 'Point',
-        enum: ['Point'],
+        enum: ['Point']
       },
       coordinates: [Number],
       address: String,
-      description: String,
+      description: String
     },
     locations: [
       {
@@ -124,11 +125,15 @@ const tourSchema = new mongoose.Schema(
   }
 );
 
+tourSchema.index({ price: 1, ratingsAverage: -1 });
+tourSchema.index({ slug: 1 });
+tourSchema.index({ locations: '2dsphere' });
+
 /**
  *@description: Virtual properties
  */
 tourSchema.virtual('durationsOnWeek').get(function () {
-  if (!this.duration) return null
+  if (!this.duration) return null;
   return `${this.duration / 7} week`;
 });
 
@@ -143,7 +148,7 @@ tourSchema.virtual('reviews', {
  *@description: Document Middleware: runs before .save() and .create()
  */
 tourSchema.pre('save', function (next) {
-  this.slugTest = slugify(this.name, {
+  this.slug = slugify(this.name, {
     lower: true,
   });
   next();
@@ -163,10 +168,10 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.pre('save', function (next) {
-  console.log('Will save document...');
-  next();
-});
+// tourSchema.pre('save', function (next) {
+//   console.log('Will save document...');
+//   next();
+// });
 
 // tourSchema.post('save', function (doc, next) {
 //   console.log(11111, doc);

@@ -1,4 +1,4 @@
-const Review = require('./../models/reviewModel');
+const Review = require('../models/reviewModel');
 const factory = require('./handlerFactory');
 
 exports.setToursIDs = (req, res, next) => {
@@ -8,7 +8,7 @@ exports.setToursIDs = (req, res, next) => {
   next();
 };
 
-exports.getAllReviews =  factory.getAll(Review);
+exports.getAllReviews = factory.getAll(Review);
 exports.createReview = factory.createOne(Review);
 exports.getReview = factory.getOne(Review);
 exports.updateReview = factory.updateOne(Review);

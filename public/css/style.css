@@ -88,10 +88,11 @@ body {
 
 .alert {
   position: fixed;
-  top: 0;
+  top: 20px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  transition: .3s all ease-in-out;
   z-index: 9999;
   color: #fff;
   font-size: 1.8rem;
@@ -102,7 +103,14 @@ body {
   padding: 1.6rem 15rem;
   -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  animation: mymoveAlert .3s
 }
+
+@keyframes mymoveAlert {
+  0%   {top: 0px;}
+  100% {top: 20px;}
+}
+
 .alert--success {
   background-color: #20bf6b;
 }
@@ -608,6 +616,18 @@ body {
   -ms-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
 }
+
+.reviews::-webkit-scrollbar {
+  width: 9px;
+  height: 14px;
+}
+.reviews::-webkit-scrollbar-thumb {
+  background-color: #e2e2e2;
+  background-clip: padding-box;
+  border-radius: 20px;
+  border: 3px solid white;
+}
+
 .reviews__card {
   width: 30rem;
   padding: 4rem;
@@ -804,6 +824,7 @@ body {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  margin: 5rem 0 0 0;
 }
 @media only screen and (max-width: 50em) {
   .footer {
@@ -1074,10 +1095,11 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 7rem;
+  grid-column-gap: 5rem;
 }
 
 .card {
+  margin: 0 0 5rem 0 ;
   border-radius: 3px;
   overflow: hidden;
   -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
@@ -1197,6 +1219,11 @@ body {
   transform: translate(-50%, -50%);
   max-width: 80rem;
   text-align: center;
+}
+.error__header{
+  font-size: 26rem;
+  color: red;
+  font-weight: bold;
 }
 .error__title {
   display: -webkit-box;
