@@ -66,6 +66,7 @@ const startServer = (type) => {
 
 if (process.argv[4] === '--dev') startServer(process.env.PORT_DEV);
 else if (process.argv[4] === '--prod') startServer(process.env.PORT_PROD);
+else startServer();
 
 /**
  * @description: unhandle rejection
