@@ -1,182 +1,106 @@
 [
   {
-    "_id": "5c8a1d5b0190b214360dc057",
-    "name": "Jonas Schmedtmann",
-    "email": "admin@natours.io",
+    "photo": "admin.jpeg",
     "role": "ADMIN",
-    "active": true,
-    "photo": "user-1.jpg",
-    "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    "passwordChangedAt": "2020-05-29T07:59:29.889Z",
+    "_id": "5ed0c103ba127476bf8db266",
+    "name": "Tung Anh Nguyen",
+    "email": "tunganhnguyen2502@gmail.com"
   },
   {
-    "_id": "5c8a1dfa2f8fb814b56fa181",
-    "name": "Lourdes Browning",
-    "email": "loulou@example.com",
-    "role": "USER",
-    "active": true,
     "photo": "user-2.jpg",
-    "password": "$2a$12$hP1h2pnNp7wgyZNRwPsOTeZuNzWBv7vHmsR3DT/OaPSUBQT.y0S.."
+    "role": "LEAD_GUIDE",
+    "passwordChangedAt": "2020-05-29T07:59:29.889Z",
+    "_id": "5ed0c130ba127476bf8db267",
+    "name": "Nguyen Van A",
+    "email": "leadguide@gmail.com"
   },
   {
-    "_id": "5c8a1e1a2f8fb814b56fa182",
-    "name": "Sophie Louise Hart",
-    "email": "sophie@example.com",
-    "role": "USER",
-    "active": true,
     "photo": "user-3.jpg",
-    "password": "$2a$12$9nFqToiTmjgfFVJiQvjmreLt4k8X4gGYCETGapSZOb2hHa55t0dDq"
+    "role": "LEAD_GUIDE",
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c182fb874976f1510079",
+    "name": "Nguyen Van B",
+    "email": "leadguide1@gmail.com"
   },
   {
-    "_id": "5c8a1ec62f8fb814b56fa183",
-    "name": "Ayla Cornell",
-    "email": "ayls@example.com",
-    "role": "USER",
-    "active": true,
     "photo": "user-4.jpg",
-    "password": "$2a$12$tm33.M/4pfEbZF64WbFuHuVFv85v4qEhi.ik8njbud7yaoqCZpjiy"
+    "role": "GUIDE",
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c1a0fb874976f151007a",
+    "name": "Nguyen Van C",
+    "email": "guide@gmail.com"
   },
   {
-    "_id": "5c8a1f292f8fb814b56fa184",
-    "name": "Leo Gillespie",
-    "email": "leo@example.com",
-    "role": "GUIDE",
-    "active": true,
     "photo": "user-5.jpg",
-    "password": "$2a$12$OOPr90tBEBF1Iho3ox0Jde0O/WXUR0VLA5xdh6tWcu7qb.qOCvSg2"
+    "role": "GUIDE",
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c1a7fb874976f151007b",
+    "name": "Nguyen Van D",
+    "email": "guide1@gmail.com"
   },
   {
-    "_id": "5c8a1f4e2f8fb814b56fa185",
-    "name": "Jennifer Hardy",
-    "email": "jennifer@example.com",
-    "role": "GUIDE",
-    "active": true,
     "photo": "user-6.jpg",
-    "password": "$2a$12$XCXvvlhRBJ8CydKH09v1v.jpg0hB9gVVfMVEoz4MsxqL9zb5PrF42"
+    "role": "GUIDE",
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c1b4fb874976f151007c",
+    "name": "Nguyen Van E",
+    "email": "guide2@gmail.com"
   },
   {
-    "_id": "5c8a201e2f8fb814b56fa186",
-    "name": "Kate Morrison",
-    "email": "kate@example.com",
-    "role": "GUIDE",
-    "active": true,
     "photo": "user-7.jpg",
-    "password": "$2a$12$II1F3aBSFDF3Xz7iB4rk/.a2dogwkClMN5gGCWrRlILrG1xtJG7q6"
+    "role": "USER",
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c1d0fb874976f151007d",
+    "name": "Tran Ngoc Huyen",
+    "email": "user@gmail.com"
   },
   {
-    "_id": "5c8a20d32f8fb814b56fa187",
-    "name": "Eliana Stout",
-    "email": "eliana@example.com",
-    "role": "USER",
-    "active": true,
     "photo": "user-8.jpg",
-    "password": "$2a$12$Jb/ILhdDV.ZpnPMu19xfe.NRh5ntE2LzNMNcsty05QWwRbmFFVMKO"
+    "role": "USER",
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c1d9fb874976f151007e",
+    "name": "Tran Ngoc Thao",
+    "email": "user1@gmail.com"
   },
   {
-    "_id": "5c8a211f2f8fb814b56fa188",
-    "name": "Cristian Vega",
-    "email": "chris@example.com",
-    "role": "USER",
-    "active": true,
     "photo": "user-9.jpg",
-    "password": "$2a$12$r7/jtdWtzNfrfC7zw3uS.eDJ3Bs.8qrO31ZdbMljL.lUY0TAsaAL6"
+    "role": "USER",
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c1e5fb874976f151007f",
+    "name": "Tran Ngoc Uyen",
+    "email": "user2@gmail.com"
   },
   {
-    "_id": "5c8a21d02f8fb814b56fa189",
-    "name": "Steve T. Scaife",
-    "email": "steve@example.com",
-    "role": "LEAD_GUIDE",
-    "active": true,
     "photo": "user-10.jpg",
-    "password": "$2a$12$q7v9dm.S4DvqhAeBc4KwduedEDEkDe2GGFGzteW6xnHt120oRpkqm"
-  },
-  {
-    "_id": "5c8a21f22f8fb814b56fa18a",
-    "name": "Aarav Lynn",
-    "email": "aarav@example.com",
-    "role": "LEAD_GUIDE",
-    "active": true,
-    "photo": "user-11.jpg",
-    "password": "$2a$12$lKWhzujFvQwG4m/X3mnTneOB3ib9IYETsOqQ8aN5QEWDjX6X2wJJm"
-  },
-  {
-    "_id": "5c8a22c62f8fb814b56fa18b",
-    "name": "Miyah Myles",
-    "email": "miyah@example.com",
-    "role": "LEAD_GUIDE",
-    "active": true,
-    "photo": "user-12.jpg",
-    "password": "$2a$12$.XIvvmznHQSa9UOI639yhe4vzHKCYO1vpTUZc4d45oiT4GOZQe1kS"
-  },
-  {
-    "_id": "5c8a23412f8fb814b56fa18c",
-    "name": "Ben Hadley",
-    "email": "ben@example.com",
-    "role": "GUIDE",
-    "active": true,
-    "photo": "user-13.jpg",
-    "password": "$2a$12$D3fyuS9ETdBBw5lOwceTMuZcDTyVq28ieeGUAanIuLMcSDz6bpfIe"
-  },
-  {
-    "_id": "5c8a23c82f8fb814b56fa18d",
-    "name": "Laura Wilson",
-    "email": "laura@example.com",
     "role": "USER",
-    "active": true,
-    "photo": "user-14.jpg",
-    "password": "$2a$12$VPYaAAOsI44uhq11WbZ5R.cHT4.fGdlI9gKJd95jmYw3.sAsmbvBq"
+    "passwordChangedAt": "2020-05-29T08:02:05.208Z",
+    "_id": "5ed0c1f3fb874976f1510080",
+    "name": "Tran Ngoc Nhi",
+    "email": "user3@gmail.com"
   },
   {
-    "_id": "5c8a23de2f8fb814b56fa18e",
-    "name": "Max Smith",
-    "email": "max@example.com",
+    "photo": "user-5ed0c20cfb874976f1510081-1592810436112.jpeg",
     "role": "USER",
-    "active": true,
-    "photo": "user-15.jpg",
-    "password": "$2a$12$l5qamwqcqC2NlgN6o5A5..9Fxzr6X.bjx/8j3a9jYUHWGOL99oXlm"
+    "passwordChangedAt": "2020-06-13T04:38:44.921Z",
+    "_id": "5ed0c20cfb874976f1510081",
+    "name": "Trần Thu Thảo",
+    "email": "thuthao@gmail.com"
   },
   {
-    "_id": "5c8a24282f8fb814b56fa18f",
-    "name": "Isabel Kirkland",
-    "email": "isabel@example.com",
+    "photo": "user-5ee750d2a9ea922e8c2ed164-1592810402896.jpeg",
     "role": "USER",
-    "active": true,
-    "photo": "user-16.jpg",
-    "password": "$2a$12$IUnwPH0MGFeMuz7g4gtfvOll.9wgLyxG.9C3TKlttfLtCQWEE6GIu"
+    "passwordChangedAt": "2020-06-15T10:00:04.619Z",
+    "_id": "5ee750d2a9ea922e8c2ed164",
+    "name": "Nguyen Ho Thuc Uyen",
+    "email": "thucuyen@gmail.com"
   },
   {
-    "_id": "5c8a24402f8fb814b56fa190",
-    "name": "Alexander Jones",
-    "email": "alex@example.com",
+    "photo": "user-5ef5a4f8139f1b1f7b6218d6-1593161304294.jpeg",
     "role": "USER",
-    "active": true,
-    "photo": "user-17.jpg",
-    "password": "$2a$12$NnclhoYFNcSApoQ3ML8kk.b4B3gbpOmZJLfqska07miAnXukOgK6y"
-  },
-  {
-    "_id": "5c8a245f2f8fb814b56fa191",
-    "name": "Eduardo Hernandez",
-    "email": "edu@example.com",
-    "role": "USER",
-    "active": true,
-    "photo": "user-18.jpg",
-    "password": "$2a$12$uB5H1OxLMOqDYTuTlptAoewlovENJvjrLwzsL1wUZ6OkAIByPPBGq"
-  },
-  {
-    "_id": "5c8a24822f8fb814b56fa192",
-    "name": "John Riley",
-    "email": "john@example.com",
-    "role": "USER",
-    "active": true,
-    "photo": "user-19.jpg",
-    "password": "$2a$12$11JElTatQlAFo1Obw/dwd..vuVmQyYS7MT14pkl3lRvVPjGA00G8O"
-  },
-  {
-    "_id": "5c8a24a02f8fb814b56fa193",
-    "name": "Lisa Brown",
-    "email": "lisa@example.com",
-    "role": "USER",
-    "active": true,
-    "photo": "user-20.jpg",
-    "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky"
+    "passwordChangedAt": "2020-06-26T09:01:38.331Z",
+    "_id": "5ef5a4f8139f1b1f7b6218d6",
+    "name": "Tung Anh Nguyen",
+    "email": "tunganhnguyen2502@icloud.com"
   }
 ]

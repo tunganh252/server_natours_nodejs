@@ -18,8 +18,8 @@ const DB = process.env.DATABASE.replace(
  * @description: 2 option: connect cloud db || connect local db
  */
 mongoose
-  .connect(DB, {
-    // .connect(process.env.DATABASE_LOCAL, {
+  // .connect(DB, {
+  .connect(process.env.DATABASE_LOCAL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -33,8 +33,8 @@ mongoose
   });
 
 const tours = JSON.parse(fs.readFileSync('./data/tours.json', 'utf-8'));
-// const reviews = JSON.parse(fs.readFileSync('./data/reviews.json', 'utf-8'));
-// const users = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'));
+const reviews = JSON.parse(fs.readFileSync('./data/reviews.json', 'utf-8'));
+const users = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'));
 
 /**
  * @example: node tools.js --import
@@ -61,7 +61,7 @@ const deleteData = async () => {
   try {
     await Tour.deleteMany();
     await Review.deleteMany();
-    // await User.deleteMany();
+    await User.deleteMany();
     console.log(
       'delete data success',
       `-----Time Finish ${new Date() - startTime}ms`
