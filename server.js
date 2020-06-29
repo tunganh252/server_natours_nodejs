@@ -39,34 +39,24 @@ mongoose
     );
   });
 
-
-let PORT = 8080;
 let server = null;
 
-const startServer = (type) => {
-  PORT =
-    type === process.env.PORT_DEV
-      ? process.env.PORT_DEV
-      : type === process.env.PORT_PROD
-      ? process.env.PORT_PROD
-      : 8080;
-
-  server = app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}.`);
+const startServer = (port) => {
+  server = app.listen(port, () => {
+    console.log(`Server running on port ${port}.`);
   });
 
-  if (type === process.env.PORT_DEV) {
+  if (port === process.env.PORT_DEV) {
     process.env.NODE_ENV = 'DEVELOPMENT';
     console.log('Is running server DEVELOPMENT');
-  } else if (type === process.env.PORT_PROD) {
+  } else if (port === process.env.PORT_PROD) {
     process.env.NODE_ENV = 'PRODUCTION';
     console.log('Is running server PRODUCTION');
   }
 };
 
 if (process.argv[4] === '--dev') startServer(process.env.PORT_DEV);
-else if (process.argv[4] === '--prod') startServer(process.env.PORT_PROD);
-else startServer();
+else startServer(process.env.PORT_PROD);
 
 /**
  * @description: unhandle rejection
