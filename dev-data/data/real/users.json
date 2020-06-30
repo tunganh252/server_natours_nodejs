@@ -1,0 +1,155 @@
+[{
+  "_id": {
+    "$oid": "5efaa88dd4de47463914dee5"
+  },
+  "photo": "",
+  "role": "ADMIN",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Tung Anh Nguyen",
+  "email": "tunganhnguyen2502@gmail.com",
+  "password": "$2a$12$U5qzkkcUGGRoX53k0WBVMecYoum6UV.m8YJENAjsYzxtevpSr2FGm",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa8acd4de47463914dee6"
+  },
+  "photo": "",
+  "role": "ADMIN",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Admin Root",
+  "email": "admin@gmail.com",
+  "password": "$2a$12$X/htO6fZbvGLvv7aSTXz6eSzS6fUE5g9YrqlB8dfrEoPw1/QCt5Sa",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa8c7d4de47463914dee7"
+  },
+  "photo": "",
+  "role": "USER",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "User Test 1",
+  "email": "user1@gmail.com",
+  "password": "$2a$12$uzF1b5jC59ATwJvY3tSou.BB0wPVnbVlYamrvg6VQD0n/g6swAnVu",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa8ced4de47463914dee8"
+  },
+  "photo": "",
+  "role": "USER",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "User Test 2",
+  "email": "user2@gmail.com",
+  "password": "$2a$12$YZRQeinrdqnujR70s3/mBeAIXvCHdjBegaErHnDdtzpywLEJY4xuO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa8d5d4de47463914dee9"
+  },
+  "photo": "",
+  "role": "USER",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "User Test 3",
+  "email": "user3@gmail.com",
+  "password": "$2a$12$osMFNF3HZLY3rlUlsGS5seEr72V8uEX.wUxLjN5lAwqr7uad8Qm7S",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa8f7d4de47463914deea"
+  },
+  "photo": "",
+  "role": "LEAD_GUIDE",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Lead Guide 1",
+  "email": "leadguide1@gmail.com",
+  "password": "$2a$12$4jzU2tTPltFJEPOFego4s.ZQIZ59kT.j6e4uWjZRXtb9WjWMnzKpK",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa90bd4de47463914deeb"
+  },
+  "photo": "",
+  "role": "LEAD_GUIDE",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Lead Guide 2",
+  "email": "leadguide2@gmail.com",
+  "password": "$2a$12$7Q9QivWv0xuMCWjDvMLQWO6ydW3nQOxqTRvTcoKGObx8N3DUqCPma",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa912d4de47463914deec"
+  },
+  "photo": "",
+  "role": "LEAD_GUIDE",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Lead Guide 3",
+  "email": "leadguide3@gmail.com",
+  "password": "$2a$12$YgUvB6s/iMesRNueozZw..GSYuAk6JflHKEbp8hE4EQw4w58TdS8K",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa934d4de47463914deed"
+  },
+  "photo": "",
+  "role": "GUIDE",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Guide 1",
+  "email": "guide1@gmail.com",
+  "password": "$2a$12$AOJXPnZquT5UwTTxaD4tlOiIDnkj39SmQeHQrKwglvdicRWQKTyQO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa93bd4de47463914deee"
+  },
+  "photo": "",
+  "role": "GUIDE",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Guide 2",
+  "email": "guide2@gmail.com",
+  "password": "$2a$12$xl9v.lZX5FiwVvjCOCfgweG7RVpY/HmBosJK4XpPDk6nvBdmBseXO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efaa940d4de47463914deef"
+  },
+  "photo": "",
+  "role": "GUIDE",
+  "passwordChangedAt": {
+    "$date": "2020-06-30T02:47:15.452Z"
+  },
+  "active": true,
+  "name": "Guide 3",
+  "email": "guide3@gmail.com",
+  "password": "$2a$12$cfzMmXvg9EyYRrlwL2MApeekHMrXY7BJrVs3GDSoIwV5RJGu9WJva",
+  "__v": 0
+}]

@@ -32,18 +32,22 @@ mongoose
     );
   });
 
-const tours = JSON.parse(fs.readFileSync('./data/tours.json', 'utf-8'));
-const reviews = JSON.parse(fs.readFileSync('./data/reviews.json', 'utf-8'));
-const users = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'));
+const tours = JSON.parse(
+  fs.readFileSync('./data/test/toursTest.json', 'utf-8')
+);
+const reviews = JSON.parse(
+  fs.readFileSync('./data/Test/reviews.json', 'utf-8')
+);
+const users = JSON.parse(fs.readFileSync('./data/real/users.json', 'utf-8'));
 
 /**
  * @example: node tools.js --import
  */
 const importData = async () => {
   try {
-    await Tour.create(tours);
+    // await Tour.create(tours);
     // await Review.create(reviews);
-    // await User.create(users, { validateBeforeSave: false });
+    await User.create(users, { validateBeforeSave: false });
     console.log(
       'import data success',
       `-----Time Finish ${new Date() - startTime}ms`
