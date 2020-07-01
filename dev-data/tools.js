@@ -36,7 +36,7 @@ const tours = JSON.parse(
   fs.readFileSync('./data/test/toursTest.json', 'utf-8')
 );
 const reviews = JSON.parse(
-  fs.readFileSync('./data/Test/reviews.json', 'utf-8')
+  fs.readFileSync('./data/test/toursTest.json', 'utf-8')
 );
 const users = JSON.parse(fs.readFileSync('./data/real/users.json', 'utf-8'));
 

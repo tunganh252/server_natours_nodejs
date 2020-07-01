@@ -3,6 +3,7 @@ import '@babel/polyfill';
 import { loginActionAPI, logoutActionAPI } from './loginAndLogout';
 import { displayMap } from './mapBox';
 import { updateUserActionApi } from './updateSettings';
+import { bookTour } from './stripe';
 
 // DOM ELEMENTS
 const DOM_Map = document.getElementById('map');
@@ -12,11 +13,18 @@ const DOM_Update_User_Info_Form = document.querySelector('.form-user-data');
 const DOM_Update_User_Password_Form = document.querySelector(
   '.form-user-settings'
 );
+const BOOK_TOUR_BTN = document.getElementById('book-tour');
 
-// DELEGATION
-if (DOM_Map) {
-  const locations = JSON.parse(DOM_Map.dataset.locations);
-  displayMap(locations);
+if (BOOK_TOUR_BTN) {
+  BOOK_TOUR_BTN.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing...';
+    const { tourId } = e.target.dataset;
+    bookTour(tourId);
+  });
+}
+
+if (DOM_Logout_btn) {
+  DOM_Logout_btn.addEventListener('click', async () => await logoutActionAPI());
 }
 
 if (DOM_Login_Form) {
@@ -30,9 +38,6 @@ if (DOM_Login_Form) {
     loginActionAPI(email, password);
   });
 }
-
-if (DOM_Logout_btn)
-  DOM_Logout_btn.addEventListener('click', () => logoutActionAPI());
 
 if (DOM_Update_User_Info_Form) {
   DOM_Update_User_Info_Form.addEventListener('submit', async (e) => {
@@ -73,4 +78,10 @@ if (DOM_Update_User_Password_Form) {
     document.getElementById('password').value = '';
     document.getElementById('password-confirm').value = '';
   });
+}
+
+// DELEGATION
+if (DOM_Map) {
+  const locations = JSON.parse(DOM_Map.dataset.locations);
+  displayMap(locations);
 }

@@ -40,7 +40,7 @@ export const logoutActionAPI = async () => {
         location.pathname === '/submit-update-user'
       ) {
         location.assign('/');
-      } else location.reload();
+      } else location.reload()
     }
   } catch (error) {
     console.log(error.response);
