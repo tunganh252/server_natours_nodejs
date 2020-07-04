@@ -8554,9 +8554,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 /**
- * @param {*object} data 
+ * @param {*object} data
  * @param {*string} type
- * @enum {info, password} for type 
+ * @enum {info, password} for type
  */
 var updateUserActionApi = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(type, dataUpdate) {
@@ -8567,11 +8567,11 @@ var updateUserActionApi = /*#__PURE__*/function () {
           case 0:
             apiUpdateUserInfo = '/api/v1/users/updateCurrentUser';
             apiUpdateCurrentPassword = '/api/v1/users/updatePassword';
-            apiUrl = type === "password" ? apiUpdateCurrentPassword : type === "info" && apiUpdateUserInfo;
+            apiUrl = type === 'password' ? apiUpdateCurrentPassword : type === 'info' && apiUpdateUserInfo;
             _context.prev = 3;
             _context.next = 6;
             return (0, _axios.default)({
-              method: "PATCH",
+              method: 'PATCH',
               url: apiUrl,
               data: dataUpdate
             });
@@ -8579,7 +8579,12 @@ var updateUserActionApi = /*#__PURE__*/function () {
           case 6:
             res = _context.sent;
             data = res.data;
-            if (data && data.Code === 0) (0, _alerts.showAlert)('success', "".concat(type.toUpperCase(), " Updated Successfully"));else (0, _alerts.showAlert)('error', 'Something Went Wrong !!!');
+
+            if (data && data.Code === 0) {
+              location.reload();
+              (0, _alerts.showAlert)('success', "".concat(type.toUpperCase(), " Updated Successfully"));
+            } else (0, _alerts.showAlert)('error', 'Something Went Wrong !!!');
+
             _context.next = 15;
             break;
 
@@ -8944,14 +8949,6 @@ var DOM_Update_User_Info_Form = document.querySelector('.form-user-data');
 var DOM_Update_User_Password_Form = document.querySelector('.form-user-settings');
 var BOOK_TOUR_BTN = document.getElementById('book-tour');
 
-if (BOOK_TOUR_BTN) {
-  BOOK_TOUR_BTN.addEventListener('click', function (e) {
-    e.target.textContent = 'Processing...';
-    var tourId = e.target.dataset.tourId;
-    (0, _stripe.bookTour)(tourId);
-  });
-}
-
 if (DOM_Logout_btn) {
   DOM_Logout_btn.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
     return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -8975,11 +8972,18 @@ if (DOM_Logout_btn) {
 
 if (DOM_Login_Form) {
   DOM_Login_Form.addEventListener('submit', function (e) {
-    e.preventDefault(); // VALUES
-
+    e.preventDefault();
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     (0, _loginAndLogout.loginActionAPI)(email, password);
+  });
+}
+
+if (BOOK_TOUR_BTN) {
+  BOOK_TOUR_BTN.addEventListener('click', function (e) {
+    e.target.textContent = 'Processing...';
+    var tourId = e.target.dataset.tourId;
+    (0, _stripe.bookTour)(tourId);
   });
 }
 
@@ -9092,7 +9096,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50302" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54912" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

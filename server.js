@@ -25,8 +25,8 @@ const DB_CLOUD = process.env.DATABASE.replace(
 const startTime = new Date();
 
 mongoose
-  // .connect(DB_CLOUD, {
-  .connect(process.env.DATABASE_LOCAL, {
+  .connect(DB_CLOUD, {
+    // .connect(process.env.DATABASE_LOCAL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,

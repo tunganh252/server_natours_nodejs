@@ -15,14 +15,6 @@ const DOM_Update_User_Password_Form = document.querySelector(
 );
 const BOOK_TOUR_BTN = document.getElementById('book-tour');
 
-if (BOOK_TOUR_BTN) {
-  BOOK_TOUR_BTN.addEventListener('click', (e) => {
-    e.target.textContent = 'Processing...';
-    const { tourId } = e.target.dataset;
-    bookTour(tourId);
-  });
-}
-
 if (DOM_Logout_btn) {
   DOM_Logout_btn.addEventListener('click', async () => await logoutActionAPI());
 }
@@ -30,12 +22,17 @@ if (DOM_Logout_btn) {
 if (DOM_Login_Form) {
   DOM_Login_Form.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    // VALUES
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-
     loginActionAPI(email, password);
+  });
+}
+
+if (BOOK_TOUR_BTN) {
+  BOOK_TOUR_BTN.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing...';
+    const { tourId } = e.target.dataset;
+    bookTour(tourId);
   });
 }
 
