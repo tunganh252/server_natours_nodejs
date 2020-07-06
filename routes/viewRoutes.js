@@ -21,6 +21,11 @@ router.get(
 router.get('/login', authController.isLoggedInClient, viewController.loginForm);
 
 router.get('/account', authController.protect, viewController.getAccount);
+router.get(
+  '/my-tours-bookings',
+  authController.protect,
+  viewController.getMyTours
+);
 
 router.post(
   '/submit-update-user',
