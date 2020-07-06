@@ -45,8 +45,10 @@ app.use(helmet());
 if (process.env.NODE_ENV === 'DEVELOPMENT') {
   // app.use(morgan('combined', { stream }));
   app.use(morgan('dev'));
-  app.use(cors());
 }
+
+app.use(cors());
+app.options('*', cors());
 
 // Limit sequests from same API
 const limiter = rateLimit({
