@@ -12,7 +12,7 @@ export const loginActionAPI = async (email, password) => {
       password,
     });
     const { data } = res;
-    console.log(data);
+    // console.log(data);
     if (data && data.Code === 0) {
       showAlert('success', 'Login successfully');
       location.assign('/');

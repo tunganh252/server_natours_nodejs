@@ -68,9 +68,8 @@ exports.getCurrentUser = (req, res, next) => {
 };
 
 exports.updateCurrentUser = catchAsync(async (req, res, next) => {
-  console.log(req.file);
-
-  console.log(req.body);
+  // console.log(req.file);
+  // console.log(req.body);
 
   // 1. Create error if user POST password
   if (req.body.password || req.body.passwordConfirm) {

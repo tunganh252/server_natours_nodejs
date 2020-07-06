@@ -49,11 +49,7 @@ exports.getOne = (Model, popOptions) =>
 
 exports.createOne = (Model) =>
   catchAsync(async (req, res) => {
-    console.log(11111, req.body);
     const doc = await Model.create(req.body);
-
-    console.log(22222, doc);
-
     res.status(200).json({
       Status: 'success',
       Code: 0,
